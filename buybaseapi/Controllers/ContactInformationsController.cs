@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using buybaseapi.Models;
-using buybaseapi.ContactData;
+using buybaseapi.Data;
 using RabbitMQ.Client;
 using System.Text.Json;
 using System.Text;

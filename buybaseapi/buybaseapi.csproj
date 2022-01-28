@@ -11,10 +11,12 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="RabbitMQ.Client" />
     <None Remove="Models\" />
+    <None Remove="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
