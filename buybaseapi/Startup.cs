@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using buybaseapi.Data;
+using buybaseapi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace buybaseapi
 {
@@ -26,6 +29,9 @@ namespace buybaseapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContextPool<ContactContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ContactContextConnectionString")));
+            services.AddScoped<IContactData, SqlContactData>();
+            services.AddScoped<IContactInformationData, SqlContactInformationData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
